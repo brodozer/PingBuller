@@ -1,0 +1,8 @@
+﻿# ignore folder "build"
+/build
+
+#ignore folder "node_modules"
+/node_modules
+
+#ignore folder "image"
+/image

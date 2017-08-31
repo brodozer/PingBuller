@@ -1,0 +1,24 @@
+.font-face(@family, @weight: normal, @style: normal) {
+    @font-face { 
+        font-family: '@{family}';
+        src:url('../fonts/@{family}/@{family}.eot');
+        src:url('../fonts/@{family}/@{family}.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/@{family}/@{family}.woff') format('woff'),
+            url('../fonts/@{family}/@{family}.ttf') format('truetype');
+        font-weight: @weight;
+        font-style: @style;
+    }
+}
+
+.font(@family, @size, @weight: normal, @text-transform: uppercase) {
+    font-family: @family;
+    font-size: @size;
+    font-weight: @weight;
+    text-transform: @text-transform;
+}
+
+.element-size(@width, @height) {
+    width: @width;
+    height: @height;
+}
+
