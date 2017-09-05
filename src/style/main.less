@@ -57,7 +57,7 @@ header {
 	position: absolute;
 	display: block;
 	left: 0;
-	width: 85%;
+	width: 100%;
     height: 6px;
     background: #edbfff;
     content: '';
@@ -284,6 +284,68 @@ header {
 	float: right;
 }		
 
+.layout-column-item-image {
+	width: 70%;
+	font-size: 0;
+}
+
+.item-img {
+	width: 100%;
+}
+
+.layout-column-item-description {
+	width: 30%;
+	padding-left: 10px;
+	font-family: LeagueGothicRegular;
+	background-color: #403f3f;
+	color: #fff;
+		
+		h3 {
+			font-size: 27px;
+			font-weight: normal;
+		}
+		
+		p {
+			font-size: 22px;
+			color: #c699d9;	
+		}
+
+		ul {
+			list-style-type: none;
+
+				li {
+					padding: 8px;
+					padding-left: 30px;
+					background: url(../img/sprites.png) no-repeat;
+
+
+						&:nth-child(1) {
+							background-position: 0 10px;
+						}
+
+						&:nth-child(2) {
+							background-position: -37px -33px;
+						}
+
+						&:nth-child(3) {
+							background-position: -87px -83px;
+						}
+
+						&:nth-child(4) {
+							background-position: -138px -132px;
+						}
+
+						&:nth-child(5) {
+							background-position: -186px -182px;
+						}
+
+						&:nth-child(6) {
+							background-position: -234px -231px;
+						}
+				}
+		}
+}
+
 .section-blog {
 	background-color: #f9f9f9;
 	padding: 100px 0;
@@ -392,6 +454,16 @@ header {
 	font-size: 20px;
 }
 
+.design-author {
+	font-family: LeagueGothicRegular;
+	font-size: 22px;
+	color: #edbfff;
+
+		span {
+			color: #fff;
+		}
+}
+
 @media screen and (max-width: 768px) {
 
 	.layout-positioner {
@@ -401,7 +473,6 @@ header {
 	}
 
 	.layout-column {
-		display: block;
 		min-width: 300px;
 		width: 80%;
 	}
