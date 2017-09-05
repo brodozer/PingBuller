@@ -10,6 +10,8 @@ var slideNavBtn = document.querySelectorAll('.slide-nav-btn');
 
 var btnMenu = document.getElementById('btn');
 var mainMenu = document.getElementById('main-menu');
+
+var fps = 15;
  
 function menu() { 
   btnMenu.classList.toggle('active');
@@ -17,7 +19,10 @@ function menu() {
 }
 
 function init() {
-  slideInterval = setInterval(nextSlide, 1800);
+  slideInterval = setTimeout(function initSlide() {
+    nextSlide();
+    slideInterval = setTimeout(initSlide, 2000)
+  }, 2000);
 }
  
 function active() {
@@ -64,6 +69,14 @@ function prevSlide() {
 
 function slider(event) {
   var currentBtn = event.target;
+
+  clearInterval(slideInterval);
+
+  if(currentBtn.classList.contains('slide-img')) {
+    var elementId = currentBtn.dataset.itemId;
+    var element = document.getElementById(elementId);
+    scrollToElement(element);
+  }
   
   if(currentBtn.classList.contains('slide-nav-btn')) {
     var navBtnId = currentBtn.dataset.numberSlide;
@@ -82,7 +95,27 @@ function slider(event) {
   if(currentBtn.classList.contains('next-btn')) {
     nextSlide();
   }
+
+  init();
+
 }
+
+function scrollToElement(el) {
+  var posX = el.offsetLeft;
+  var posY = el.offsetTop;
+  var i = 15;
+
+  var int = setInterval(function() {
+    window.scrollTo(posX, i);
+    
+    i +=15;
+
+    if(i >= posY) {
+      clearInterval(int);
+    }
+  }, 10)
+}
+
 
     
 window.onload = function() {
@@ -91,13 +124,5 @@ window.onload = function() {
   btnMenu.addEventListener('click', menu);
 
   viewport.addEventListener('click', slider);
-
-  viewport.addEventListener('mouseover', function() {
-    clearInterval(slideInterval);  
-})
-  
-viewport.addEventListener('mouseout', function() {
-    init();
-})
 
 }    
