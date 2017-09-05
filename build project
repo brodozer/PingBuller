@@ -1,0 +1,4 @@
+# PingBuller
+After loading and unpacking the project, build the command line:
+- npm install //setup modules//
+- gulp //build project and start browser server//
