@@ -7,6 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var watch = require('gulp-watch');
 var reload = browserSync.reload;
 var imagemin = require('gulp-imagemin');
+var uglify = require('gulp-uglify');
 
 var configServer = {
 	server: {
@@ -84,6 +85,9 @@ gulp.task('fonts', function() {
 
 gulp.task('js', function() {
 	gulp.src(path.src.js)
+		.pipe(sourcemaps.init())
+		.pipe(uglify())
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.build.js))
 		.pipe(reload({
 			stream: true
